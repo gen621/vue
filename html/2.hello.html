@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>速習vue.js|hello</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ message.substring(1) }}</p>
+        <p>{{ Math.abs(-10) }}</p>
+        <p>{{ new Date('may 10, 2019 12:00') }}</p>
+
+        <!-- ディレクティブによるデータアクセス -->
+        <p v-text="message"></p>
+
+        <!-- 一部を置き換えるような場合 -->
+        <p>{{ message }} 今後ともよろしく。</p>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el  : '#app',
+    data: {
+        message: 'こんにちは、Vue.js！'
+    }
+})
+</script>
+</body>
+</html>
