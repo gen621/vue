@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>速習vue.js|directive</title>
+    <title>速習vue.js|date directive</title>
 </head>
 <body>
     <div id="app">
+        <p>{{ message }}</p>
+        <p v-pre>{{ はじめまして、Vue.js！ }}</p>
+        <p v-html="message_html"></p>
+        <p><a v-bind:href="url">サポートサイト</a></p>
+        <p v-bind:width="width" v-bind:height="height">属性を追加してみる</p>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'はじめまして、Vue.js！',
+            message_html: '<h1>はじめまして、Vue.js！</h1>'+'<span><a href="https://jp.vuejs.org">公式サイト</a>はこちら</span>',
+            url: 'https://jp.vuejs.org',
+            width: 350,
+            height: 100
+        }
+    })
 </script>
 </body>
 </html>
