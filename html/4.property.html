@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>速習vue.js|date directive</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 推奨されないやり方 -->
+        <p>{{ email.split('@')[0].toUpperCase() }}</p>
+
+        <!-- 算出プロパティで対応 -->
+        <p>{{ localEmail }}</p>
+        <p>{{ localEmail2 }}</p>
+
+        <!-- メソッドとして切り出し -->
+        <p>{{ localEmail_method() }}</p>
+
+        <!-- 算出プロパティとメソッドの更新タイミングの違い -->
+        <p>算出プロパティ：{{ randomc }}</p>
+        <p>メソッド：{{ rendomm() }}</p>
+        <p>メソッド：{{ rendomm2() }}</p>
+        <p>現在日時：{{ current }}</p>
+
+        <form>
+            <input type="button" value="クリック" v-on:click="onclick">
+        </form>
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            email: 'hoge@gmail.com',
+            current: new Date().toLocaleString()
+        },
+        computed: {
+            localEmail: function(){
+                var str = this.email.split('@')[0].toUpperCase();
+                return str;
+            },
+            localEmail2: function(){
+                return this.email.split('@')[0].toLowerCase();
+            },
+            randomc: function(){
+                return Math.random();
+            }
+        },
+        methods: {
+            localEmail_method: function(){
+                return this.email.split('@')[0].toLowerCase();
+            },
+            rendomm: function(){
+                return Math.random();
+            },
+            rendomm2: function(){
+                return Math.random();
+            },
+            onclick: function(){
+                //this.current = new Date().toLocaleString();
+                this.email = 'hoge-chan';
+            }
+        }
+    })
+</script>
+</body>
+</html>
