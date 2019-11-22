@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>速習vue.js|html</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 通常はエスケープされる -->
+        <p>{{ message }}</p>
+
+        <!-- 動的に出したい場合 XSSの脆弱性につながる -->
+        <p v-html="message"></p>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+new Vue({
+    el   :"#app",
+    data :{
+        message :'<h1>こんにちわ</h1><span><a href="#" class="vue-test">リンク</a></span>'
+    }
+})
+</script>
+</body>
+</html>
